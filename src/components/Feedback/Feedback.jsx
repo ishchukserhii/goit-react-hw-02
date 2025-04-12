@@ -1,7 +1,7 @@
 import React from "react";
 
-const Feedback = ({ Counter, totalFeedback }) => {
-  const positiveFeedback = Math.round((Counter.good / totalFeedback) * 100);
+const Feedback = ({ Counter, totalFeedback, positiveFeedback }) => {
+  
 
   return (
     <>

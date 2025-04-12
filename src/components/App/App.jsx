@@ -22,7 +22,7 @@ function App() {
   }, [votingData]);
 
   const totalFeedback = votingData.good + votingData.neutral + votingData.bad;
-
+  const positiveFeedback = Math.round((votingData.good / totalFeedback) * 100);
   const updateFeedback = (feedbackType) => {
     setVotingData({
       ...votingData,
@@ -40,8 +40,7 @@ function App() {
         resetFeedback={resetFeedback}
       />
       {totalFeedback === 0 && <Notification />}
-      {totalFeedback > 0 && (
-        <Feedback Counter={votingData} totalFeedback={totalFeedback} />
+      {totalFeedback > 0 && (<Feedback Counter={votingData} totalFeedback={totalFeedback} positiveFeedback={positiveFeedback}/>
       )}
     </>
   );
